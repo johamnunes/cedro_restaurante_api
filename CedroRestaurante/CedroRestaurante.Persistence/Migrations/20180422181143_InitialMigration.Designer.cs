@@ -3,21 +3,25 @@ using CedroRestaurante.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace CedroRestaurante.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180422181143_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CedroRestaurante.DataObjects.Prato", b =>
+            modelBuilder.Entity("CedroRestaurante.DataObjects.Models.Prato", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -31,20 +35,17 @@ namespace CedroRestaurante.Persistence.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired();
 
-                    b.Property<bool>("Removido");
-
-                    b.Property<string>("RestauranteId");
+                    b.Property<string>("RestauranteId")
+                        .IsRequired();
 
                     b.Property<decimal>("Valor");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CriadoEm");
-
                     b.ToTable("Pratos");
                 });
 
-            modelBuilder.Entity("CedroRestaurante.DataObjects.Restaurante", b =>
+            modelBuilder.Entity("CedroRestaurante.DataObjects.Models.Restaurante", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -58,11 +59,7 @@ namespace CedroRestaurante.Persistence.Migrations
                     b.Property<string>("Nome")
                         .IsRequired();
 
-                    b.Property<bool>("Removido");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CriadoEm");
 
                     b.ToTable("Restaurantes");
                 });

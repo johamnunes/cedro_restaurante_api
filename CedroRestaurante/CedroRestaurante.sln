@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroResutante.API", "CedroResutante.API\CedroResutante.API.csproj", "{F26F7ED2-5017-46F7-A4C1-DE7BE016CB5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.API", "CedroRestaurante.API\CedroRestaurante.API.csproj", "{F26F7ED2-5017-46F7-A4C1-DE7BE016CB5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.DataObjects", "CedroRestaurante.DataObjects\CedroRestaurante.DataObjects.csproj", "{F8AAF4E7-00B6-422F-AE4B-D7BFEED878E3}"
 EndProject

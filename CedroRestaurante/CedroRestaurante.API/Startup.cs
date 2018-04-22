@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CedroResutante.API
+namespace CedroRestaurante.API
 {
     public class Startup
     {

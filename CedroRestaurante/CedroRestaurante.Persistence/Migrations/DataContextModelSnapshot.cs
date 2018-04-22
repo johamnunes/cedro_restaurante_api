@@ -11,17 +11,16 @@ using System;
 namespace CedroRestaurante.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180422150035_InitialMigration")]
-    partial class InitialMigration
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CedroRestaurante.DataObjects.Prato", b =>
+            modelBuilder.Entity("CedroRestaurante.DataObjects.Models.Prato", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -35,9 +34,8 @@ namespace CedroRestaurante.Persistence.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired();
 
-                    b.Property<bool>("Removido");
-
-                    b.Property<string>("RestauranteId");
+                    b.Property<string>("RestauranteId")
+                        .IsRequired();
 
                     b.Property<decimal>("Valor");
 
@@ -46,7 +44,7 @@ namespace CedroRestaurante.Persistence.Migrations
                     b.ToTable("Pratos");
                 });
 
-            modelBuilder.Entity("CedroRestaurante.DataObjects.Restaurante", b =>
+            modelBuilder.Entity("CedroRestaurante.DataObjects.Models.Restaurante", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -59,8 +57,6 @@ namespace CedroRestaurante.Persistence.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired();
-
-                    b.Property<bool>("Removido");
 
                     b.HasKey("Id");
 
