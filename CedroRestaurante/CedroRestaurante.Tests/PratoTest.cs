@@ -63,7 +63,7 @@ namespace CedroRestaurante.Tests
 
         [TestMethod]
         [TestCategory("Prato")]
-        public void Atualiza_Restaurante()
+        public void Atualiza_Prato()
         {
             InitContext();
             Prato entity = service.Get().Find(x => x.Descricao.Contains("UNIT TEST"));

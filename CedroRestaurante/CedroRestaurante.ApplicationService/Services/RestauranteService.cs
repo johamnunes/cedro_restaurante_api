@@ -3,6 +3,7 @@ using CedroRestaurante.DataObjects.Models;
 using CedroRestaurante.Persistence.Data;
 using CedroRestaurante.Persistence.Repositories;
 using CedroRestaurante.Services.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -63,7 +64,7 @@ namespace CedroRestaurante.ApplicationService.Services
 
         public Restaurante Get(string id)
         {
-            Restaurante restaurante = restauranteRepository.Get(x => x.Id == id).FirstOrDefault();
+            Restaurante restaurante = restauranteRepository.Get(x => x.Id == id).Include("Pratos").FirstOrDefault();
             if (restaurante == null)
             {
                 Notification.CreateMessage(HttpStatusCode.NotFound, string.Format(DefaultMessage.NAO_ENCONTRADO, "Restaurante"));

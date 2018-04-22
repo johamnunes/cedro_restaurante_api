@@ -3,6 +3,7 @@ using CedroRestaurante.DataObjects.Models;
 using CedroRestaurante.Persistence.Data;
 using CedroRestaurante.Persistence.Repositories;
 using CedroRestaurante.Services.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -59,7 +60,7 @@ namespace CedroRestaurante.ApplicationService.Services
             return true;
         }
 
-        public List<Prato> Get() => pratoRepository.Get().ToList();
+        public List<Prato> Get() => pratoRepository.Get().Include("Restaurante").ToList();
 
         public Prato Get(string id)
         {

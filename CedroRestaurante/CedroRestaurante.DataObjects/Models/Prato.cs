@@ -18,7 +18,6 @@ namespace CedroRestaurante.DataObjects.Models
         [ForeignKey("Restaurante")]
         public string RestauranteId { get; set; }
 
-        [NotMapped]
         public virtual Restaurante Restaurante { get; set; }
     }
 }

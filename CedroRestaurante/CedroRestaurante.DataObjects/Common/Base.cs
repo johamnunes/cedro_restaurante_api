@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CedroRestaurante.DataObjects.Common
 {
@@ -8,8 +9,10 @@ namespace CedroRestaurante.DataObjects.Common
         [Key]
         public string Id { get; set; }
 
-        public DateTimeOffset CriadoEm { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTimeOffset? CriadoEm { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTimeOffset? AtualizadoEm { get; set; }
     }
 }
