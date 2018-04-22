@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.API", "Ced
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.DataObjects", "CedroRestaurante.DataObjects\CedroRestaurante.DataObjects.csproj", "{F8AAF4E7-00B6-422F-AE4B-D7BFEED878E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.ApplicationService", "CedroRestaurante.Services\CedroRestaurante.ApplicationService.csproj", "{4EDE621B-CE53-4C1C-B383-C383E3777494}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.ApplicationService", "CedroRestaurante.ApplicationService\CedroRestaurante.ApplicationService.csproj", "{4EDE621B-CE53-4C1C-B383-C383E3777494}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CedroRestaurante.Tests", "CedroRestaurante.Tests\CedroRestaurante.Tests.csproj", "{2D7C5364-CA70-4FF4-B3D5-23747FBC29E8}"
 EndProject

@@ -1,9 +1,13 @@
 ﻿using CedroRestaurante.Persistence.Data;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
 namespace CedroRestaurante.API
 {
@@ -21,16 +25,24 @@ namespace CedroRestaurante.API
         {
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-            // Register the Swagger generator, defining one or more Swagger documents
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info { Title = "Cedro Restaurante API", Version = "v1" });
+            services.AddCors(
+                config =>
+                {
+                    CorsPolicy policy = new CorsPolicy();
+                    config.AddPolicy("policy", policy);
+                }
+            );
 
-            //    // Set the comments path for the Swagger JSON and UI.
-            //    string basePath = AppContext.BaseDirectory;
-            //    string xmlPath = Path.Combine(basePath, "CedroRestauranteAPI.xml");
-            //    c.IncludeXmlComments(xmlPath);
-            //});
+            //Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Cedro Restaurante API", Version = "v1" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                string basePath = AppContext.BaseDirectory;
+                string xmlPath = Path.Combine(basePath, "CedroRestaurante.API.xml");
+                c.IncludeXmlComments(xmlPath);
+            });
 
             services.AddOptions();
 
@@ -50,13 +62,13 @@ namespace CedroRestaurante.API
             );
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            //app.UseSwagger();
+            app.UseSwagger();
 
-            //// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CTarefas V1");
-            //});
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cedro Restaurante V1");
+            });
 
             app.UseMvc(routes =>
             {

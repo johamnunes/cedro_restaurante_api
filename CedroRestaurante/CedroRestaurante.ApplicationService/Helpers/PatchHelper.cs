@@ -26,7 +26,7 @@ namespace CedroRestaurante.ApplicationService.Helpers
 
             foreach (PropertyInfo prop in properties)
             {
-                if (prop.Name == "CriadoEm" || prop.Name == "AtualizadoEm" || prop.Name == "Id" || prop.Name == "Removido")
+                if (prop.Name == "CriadoEm" || prop.Name == "AtualizadoEm" || prop.Name == "Id")
                 {
                 }
                 else

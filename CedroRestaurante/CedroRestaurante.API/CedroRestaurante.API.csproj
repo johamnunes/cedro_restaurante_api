@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <ApplicationInsightsResourceId>/subscriptions/80a2404f-0fec-49c2-b61e-79084ede6063/resourcegroups/cedrorestaurante/providers/microsoft.insights/components/cedrorestaurante</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/80a2404f-0fec-49c2-b61e-79084ede6063/resourcegroups/cedrorestaurante/providers/microsoft.insights/components/cedrorestaurante</ApplicationInsightsAnnotationResourceId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\CedroRestaurante.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,9 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.WebApiCompatShim" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="2.4.0" />
   </ItemGroup>
 
@@ -20,8 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CedroRestaurante.ApplicationService\CedroRestaurante.ApplicationService.csproj" />
     <ProjectReference Include="..\CedroRestaurante.Persistence\CedroRestaurante.Persistence.csproj" />
-    <ProjectReference Include="..\CedroRestaurante.Services\CedroRestaurante.ApplicationService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>

@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CedroRestaurante.ApplicationService\CedroRestaurante.ApplicationService.csproj" />
     <ProjectReference Include="..\CedroRestaurante.DataObjects\CedroRestaurante.DataObjects.csproj" />
     <ProjectReference Include="..\CedroRestaurante.Persistence\CedroRestaurante.Persistence.csproj" />
-    <ProjectReference Include="..\CedroRestaurante.Services\CedroRestaurante.ApplicationService.csproj" />
   </ItemGroup>
 
   <ItemGroup>
